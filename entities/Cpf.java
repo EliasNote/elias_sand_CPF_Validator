@@ -13,11 +13,26 @@ public class Cpf {
     }
 
     public void validateCpf() {
-        validCpf = cpfList.stream()
+        // FILTA OS 11 DIGITOS
+        List<String> list = cpfList.stream()
                 .filter(x -> x.length() == 11)
                 .toList();
+
+        // FILTRA POR NUMEROS
+        for (String string : list) {
+            boolean valid = true;
+            for (char c : string.toCharArray()) {
+                if (!Character.isDigit(c)) {
+                    valid = false;
+                }
+            }
+            if (valid) {
+                validCpf.add(string);
+            }
+        }
+
         invalidCpf = cpfList.stream()
-                .filter(x -> x.length() != 11)
+                .filter(x -> !validCpf.contains(x))
                 .toList();
     }
     public String getValidCpf() {

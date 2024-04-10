@@ -11,7 +11,7 @@ Montar estrutura do programa:
     - Se o tamanho for 11, é válido;
     - Se o tamanho não for 11, é inválido.
 
-### Task-02 [ ]
+### Task-02 [x]
 Verificação se é numerico:
 - Se for um numerico, é válido;
 - Se não for um numerico, é inválido.
