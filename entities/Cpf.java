@@ -15,23 +15,20 @@ public class Cpf {
     public void validateCpf() {
         // FILTA OS 11 DIGITOS
         List<String> list = cpfList.stream()
+                .map(x -> x.replaceAll("[.-]", ""))
                 .filter(x -> x.length() == 11)
                 .toList();
 
         // FILTRA POR NUMEROS
         for (String string : list) {
             boolean valid = true;
-            for (char c : string.toCharArray()) {
-                if (!Character.isDigit(c)) {
-                    valid = false;
-                }
-            }
-            if (valid) {
-                validCpf.add(string);
-            }
+            for (char c : string.toCharArray()) { if (!Character.isDigit(c)) { valid = false; } }
+            if (valid) { validCpf.add(string); }
         }
 
+        // FILTRA TODOS QUE NÃO ESTÃO NA LISTA cpfList
         invalidCpf = cpfList.stream()
+                .map(x -> x.replaceAll("[.-]", ""))
                 .filter(x -> !validCpf.contains(x))
                 .toList();
     }

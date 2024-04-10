@@ -16,7 +16,7 @@ Verificação se é numerico:
 - Se for um numerico, é válido;
 - Se não for um numerico, é inválido.
 
-### Task-03
+### Task-03 []
 Retirada de pontos e traços:
 - Se após remover os pontos e traços o tamanho for 11, é válido;
 - Se após remover os pontos e traços o tamanho não for 11, é inválido.
