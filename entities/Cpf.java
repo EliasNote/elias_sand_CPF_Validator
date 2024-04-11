@@ -13,27 +13,30 @@ public class Cpf {
     }
 
     public void validateCpf() {
-        filterCpfList();
+        validCpf = cpfList.stream()
+                .filter(x -> filterCpf(x))
+                .distinct()
+                .toList();
 
         // RETORNA TODOS QUE NAO ESTAO NA LISTA validCpf
         invalidCpf = cpfList.stream()
-                .filter(x -> !validCpf.contains(x))
+                .filter(x -> !filterCpf(x))
+                .distinct()
                 .toList();
     }
 
-    public void filterCpfList() {
-        for (String cpf : cpfList) {
-            String c = cpf.replaceAll("[.-]","");
+    private Boolean filterCpf(String cpf) {
+        String c = cpf.replaceAll("[.-]","");
 
-            // FILTRA OS 11 DIGITOS
-            if (c.length() == 11) {
+        // FILTRA OS 11 DIGITOS
+        if (c.length() == 11) {
 
-                // VERIFICA SE HA SOMENTE DIGITOS NO CPF
-                boolean valid = true;
-                for (char x : c.toCharArray()) { if (!Character.isDigit(x)) { valid = false; } }
-                if (valid) { validCpf.add(cpf); }
-            }
+            // VERIFICA SE HA SOMENTE DIGITOS NO CPF
+            boolean valid = true;
+            for (char x : c.toCharArray()) { if (!Character.isDigit(x)) { valid = false; break; } }
+            return valid;
         }
+        return false;
     }
 
     public String getValidCpf() {
