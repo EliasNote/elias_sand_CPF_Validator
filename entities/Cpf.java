@@ -13,25 +13,29 @@ public class Cpf {
     }
 
     public void validateCpf() {
-        // FILTA OS 11 DIGITOS
-        List<String> list = cpfList.stream()
-                .map(x -> x.replaceAll("[.-]", ""))
-                .filter(x -> x.length() == 11)
-                .toList();
+        filterCpfList();
 
-        // FILTRA POR NUMEROS
-        for (String string : list) {
-            boolean valid = true;
-            for (char c : string.toCharArray()) { if (!Character.isDigit(c)) { valid = false; } }
-            if (valid) { validCpf.add(string); }
-        }
-
-        // FILTRA TODOS QUE NÃO ESTÃO NA LISTA cpfList
+        // RETORNA TODOS QUE NAO ESTAO NA LISTA validCpf
         invalidCpf = cpfList.stream()
-                .map(x -> x.replaceAll("[.-]", ""))
                 .filter(x -> !validCpf.contains(x))
                 .toList();
     }
+
+    public void filterCpfList() {
+        for (String cpf : cpfList) {
+            String c = cpf.replaceAll("[.-]","");
+
+            // FILTRA OS 11 DIGITOS
+            if (c.length() == 11) {
+
+                // VERIFICA SE HA SOMENTE DIGITOS NO CPF
+                boolean valid = true;
+                for (char x : c.toCharArray()) { if (!Character.isDigit(x)) { valid = false; } }
+                if (valid) { validCpf.add(cpf); }
+            }
+        }
+    }
+
     public String getValidCpf() {
         StringBuilder sb = new StringBuilder();
         for (String cpf : validCpf) {
