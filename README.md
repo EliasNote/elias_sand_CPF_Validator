@@ -2,6 +2,16 @@
 ## Nome: Elias Mathias Sand
 ## Email: elias.sand.pb@compasso.com.br
 
+## Intrutores:
+- @devrafamenegon
+- edmarmiller@hotmail.com
+- cleiton.balansin@compasso.com.br
+- mosilveira
+- jaonicoli@gmail.com
+- rafinhalq@gmail.com
+- lucasmagno695@gmail.com
+- guiguel@gmail.com
+
 ### Task-01 [x]
 Montar estrutura do programa:
 - entrada;
