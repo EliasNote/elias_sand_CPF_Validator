@@ -2,7 +2,7 @@
 ## Nome: Elias Mathias Sand
 ## Email: elias.sand.pb@compasso.com.br
 
-## Intrutores:
+## Instrutores:
 - @devrafamenegon
 - edmarmiller@hotmail.com
 - cleiton.balansin@compasso.com.br
