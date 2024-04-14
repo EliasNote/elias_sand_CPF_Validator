@@ -11,7 +11,6 @@ public class Cpf {
     private List<String> invalidCpf = new ArrayList<>();
     private Validate validate = new Validate();
 
-    public Cpf() { }
 
     public Cpf(List<String> cpfList, List<String> blackList) {
         this.cpfList = cpfList;
