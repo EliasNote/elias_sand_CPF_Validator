@@ -32,7 +32,7 @@ public class Main {
             }
 
             Cpf cpf = new Cpf(cpfList, blackList);
-            cpf.validateCpf();
+            cpf.filterCpf();
 
             System.out.println("Lista de CPFs válidos:");
             System.out.println(cpf.getValidCpf());

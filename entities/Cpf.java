@@ -1,48 +1,38 @@
 package entities;
 
+import entities.validations.Validate;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cpf {
     private List<String> cpfList;
-    private List<String> blackList;
     private List<String> validCpf = new ArrayList<>();
     private List<String> invalidCpf = new ArrayList<>();
+    private Validate validate = new Validate();
+
+    public Cpf() { }
 
     public Cpf(List<String> cpfList, List<String> blackList) {
         this.cpfList = cpfList;
-        this.blackList = blackList.stream()
-                .map(x -> x.replaceAll("[.-]",""))
-                .toList();
+        validate.setBlackList(
+                blackList.stream()
+                        .map(x -> x.replaceAll("[.-]",""))
+                        .toList()
+        );
     }
 
-    public void validateCpf() {
+    public void filterCpf() {
         validCpf = cpfList.stream()
-                .filter(x -> filterCpf(x))
+                .filter(x -> validate.validateCpf(x))
                 .distinct()
                 .toList();
 
         // RETORNA TODOS QUE NAO ESTAO NA LISTA validCpf
         invalidCpf = cpfList.stream()
-                .filter(x -> !filterCpf(x))
+                .filter(x -> !validate.validateCpf(x))
                 .distinct()
                 .toList();
-    }
-
-    private Boolean filterCpf(String cpf) {
-        String c = cpf.replaceAll("[.-]","");
-
-        // FILTRA OS 11 DIGITOS
-        if (c.length() == 11) {
-
-            // VERIFICA SE HA SOMENTE DIGITOS NO CPF
-            boolean valid = true;
-            for (char x : c.toCharArray()) { if (!Character.isDigit(x)) { valid = false; break; } }
-
-            // SE HA SOMENTE DIGITOS NO CPF E ELE NAO ESTIVER NA BLACKLIST RETORNA TRUE
-            return valid && !blackList.contains(c);
-        }
-        return false;
     }
 
     public String getValidCpf() {
