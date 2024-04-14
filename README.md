@@ -24,7 +24,7 @@ Retirada de pontos e traços:
 ### Task-11 [x]
 - Validar se o cpf está na blackList, saida se NÃO estiver é valido.
 
-### Task-12 []
+### Task-12 [x]
 - Validação matemática se os digitos verificadores são validos, saida se o DV(digito verificado) é valido
 
 ### Task-13 []
