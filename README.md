@@ -21,6 +21,15 @@ Retirada de pontos e traços:
 - Se após remover os pontos e traços o tamanho for 11, é válido;
 - Se após remover os pontos e traços o tamanho não for 11, é inválido.
 
+### Task-11 []
+- Validar se o cpf está na blackList, saida se NÃO estiver é valido.
+
+### Task-12 []
+- Validação matemática se os digitos verificadores são validos, saida se o DV(digito verificado) é valido
+
+### Task-13 []
+- Achar pelo 9 dígito a região CPF já validado, achamos a região.
+
 
 Dada a lista de CPFs:<br>
 98765432100<br>

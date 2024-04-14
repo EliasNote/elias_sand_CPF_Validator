@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cpf {
-    private List<String> cpfList = new ArrayList<>();
+    private List<String> cpfList;
+    private List<String> blackList;
     private List<String> validCpf = new ArrayList<>();
     private List<String> invalidCpf = new ArrayList<>();
 
-    public Cpf(List<String> cpfList) {
+    public Cpf(List<String> cpfList, List<String> blackList) {
         this.cpfList = cpfList;
+        this.blackList = blackList.stream()
+                .map(x -> x.replaceAll("[.-]",""))
+                .toList();
     }
 
     public void validateCpf() {
@@ -34,7 +38,9 @@ public class Cpf {
             // VERIFICA SE HA SOMENTE DIGITOS NO CPF
             boolean valid = true;
             for (char x : c.toCharArray()) { if (!Character.isDigit(x)) { valid = false; break; } }
-            return valid;
+
+            // SE HA SOMENTE DIGITOS NO CPF E ELE NAO ESTIVER NA BLACKLIST RETORNA TRUE
+            return valid && !blackList.contains(c);
         }
         return false;
     }

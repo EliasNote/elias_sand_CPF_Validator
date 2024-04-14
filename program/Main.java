@@ -14,16 +14,25 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         List<String> cpfList = new ArrayList<>();
+        List<String> blackList = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(new File("C:\\temp\\Lista de CPFs.txt")))) {
-            String line = br.readLine();
+        try (BufferedReader brCpf = new BufferedReader(new FileReader(new File("C:\\temp\\Lista de CPFs.txt")));
+             BufferedReader brBlack = new BufferedReader(new FileReader(new File("C:\\temp\\Blacklist CPFs.txt")))) {
+
+            String line = brCpf.readLine();
             while(line != null) {
                 cpfList.add(line);
-                line = br.readLine();
+                line = brCpf.readLine();
             }
-            Cpf cpf = new Cpf(cpfList);
-            cpf.validateCpf();
 
+            line = brBlack.readLine();
+            while(line != null) {
+                blackList.add(line);
+                line = brBlack.readLine();
+            }
+
+            Cpf cpf = new Cpf(cpfList, blackList);
+            cpf.validateCpf();
 
             System.out.println("Lista de CPFs válidos:");
             System.out.println(cpf.getValidCpf());
@@ -31,12 +40,9 @@ public class Main {
             System.out.println("Lista de CPFs inválidos:");
             System.out.println(cpf.getInvalidCpf());
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.print("Arquivo(s) não encontrado(s): " + e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.print("Erro inesperado!: " + e);
         }
     }
 }
-
-
-
