@@ -2,7 +2,7 @@ package entities.validations;
 import java.util.List;
 
 public class Validate {
-    protected List<String> blackList;
+    private List<String> blackList;
     private String cpf;
 
     public Validate() { }
