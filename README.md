@@ -21,7 +21,7 @@ Retirada de pontos e traços:
 - Se após remover os pontos e traços o tamanho for 11, é válido;
 - Se após remover os pontos e traços o tamanho não for 11, é inválido.
 
-### Task-11 []
+### Task-11 [x]
 - Validar se o cpf está na blackList, saida se NÃO estiver é valido.
 
 ### Task-12 []
