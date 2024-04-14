@@ -25,9 +25,8 @@ public class Validate {
 
     // VERIFICA SE HA SOMENTE DIGITOS NO CPF
     public boolean validateDigit() {
-        boolean valid = true;
-        for (char x : cpf.toCharArray()) { if (!Character.isDigit(x)) { valid = false; break; } }
-        return valid;
+        for (char x : cpf.toCharArray()) { if (!Character.isDigit(x)) { return false; } }
+        return true;
     }
 
     // VERIFICA SE O CPF NAO ESTA NA BLACKLIST
@@ -48,6 +47,6 @@ public class Validate {
             }
             value += String.valueOf(((11 - (total % 11)) < 10) ? 11 - (total % 11) : 0);
         }
-        return value.equals(cpf) && !blackList.contains(value);
+        return value.equals(cpf);
     }
 }
