@@ -27,7 +27,7 @@ Retirada de pontos e traços:
 ### Task-12 [x]
 - Validação matemática se os digitos verificadores são validos, saida se o DV(digito verificado) é valido
 
-### Task-13 []
+### Task-13 [x]
 - Achar pelo 9 dígito a região CPF já validado, achamos a região.
 
 

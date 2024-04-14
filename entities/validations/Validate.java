@@ -20,13 +20,11 @@ public class Validate {
 
     // FILTRA OS 11 DIGITOS
     public boolean validateLength() {
-
         return cpf.length() == 11;
     }
 
     // VERIFICA SE HA SOMENTE DIGITOS NO CPF
     public boolean validateDigit() {
-
         boolean valid = true;
         for (char x : cpf.toCharArray()) { if (!Character.isDigit(x)) { valid = false; break; } }
         return valid;
@@ -34,13 +32,11 @@ public class Validate {
 
     // VERIFICA SE O CPF NAO ESTA NA BLACKLIST
     public boolean validateBlackList() {
-
         return !blackList.contains(cpf);
     }
 
     // FAZ O CALCULO PARA VERIFICAR OS DOIS ULTIMOS DIGITOS
     public boolean validateMathematic() {
-
         String value = cpf.substring(0, 9);
         for (int i = 0; i < 2; i++) {
             int total = 0;
