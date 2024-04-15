@@ -22,7 +22,7 @@ public class Main {
                 line = br.readLine();
             }
             Cpf cpf = new Cpf(cpfList);
-            cpf.validateCpf();
+            cpf.filterCpf();
 
 
             System.out.println("Lista de CPFs válidos:");
@@ -31,9 +31,9 @@ public class Main {
             System.out.println("Lista de CPFs inválidos:");
             System.out.println(cpf.getInvalidCpf());
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.print("Arquivo(s) não encontrado(s): " + e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.print("Erro inesperado!: " + e);
         }
     }
 }
